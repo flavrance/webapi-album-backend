@@ -1,4 +1,4 @@
-﻿namespace TaskApp.Domain
+﻿namespace AlbumApp.Domain
 {
     internal interface IAggregateRoot : IEntity
     {

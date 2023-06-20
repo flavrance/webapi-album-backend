@@ -50,7 +50,7 @@
 
             foreach (Entities.Task taskData in data)
             {
-                Domain.Tasks.Task task = Domain.Tasks.Task.Load(
+                Domain.Tasks.Artista task = Domain.Tasks.Artista.Load(
                     taskData.Id,
                     taskData.Description,
                     taskData.Date,
@@ -74,7 +74,7 @@
 
             foreach (Entities.Task taskData in data)
             {
-                Domain.Tasks.Task task = Domain.Tasks.Task.Load(
+                Domain.Tasks.Artista task = Domain.Tasks.Artista.Load(
                     taskData.Id,
                     taskData.Description,
                     taskData.Date,

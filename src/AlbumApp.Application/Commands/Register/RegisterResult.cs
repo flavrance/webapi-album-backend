@@ -9,7 +9,7 @@
         
         public TaskResult Task { get; }
 
-        public RegisterResult(Task task)
+        public RegisterResult(Artista task)
         {
             Task = new TaskResult(task.Id, task.Description, task.Date, task.Status);            
         }

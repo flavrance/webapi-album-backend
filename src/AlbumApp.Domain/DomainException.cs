@@ -1,4 +1,4 @@
-﻿namespace TaskApp.Domain
+﻿namespace AlbumApp.Domain
 {
     using System;
 

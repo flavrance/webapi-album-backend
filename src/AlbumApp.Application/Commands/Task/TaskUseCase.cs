@@ -24,7 +24,7 @@
 
         public async Task<TaskResult> Execute(Guid taskId)
         {            
-            Domain.Tasks.Task task = await taskReadOnlyRepository.Get(taskId);
+            Domain.Tasks.Artista task = await taskReadOnlyRepository.Get(taskId);
             if (task == null)
                 throw new TaskNotFoundException($"The task {taskId} does not exists.");
 
@@ -34,11 +34,11 @@
         }
         public async Task<TaskResult> Execute(Guid taskId, Description description, Date date, TaskStatusEnum status)
         {
-            Domain.Tasks.Task task = await taskReadOnlyRepository.Get(taskId);
+            Domain.Tasks.Artista task = await taskReadOnlyRepository.Get(taskId);
             if (task == null)
                 throw new TaskNotFoundException($"The task {taskId} does not exists.");
 
-            task = Domain.Tasks.Task.Load(task.Id, description, date, status);            
+            task = Domain.Tasks.Artista.Load(task.Id, description, date, status);            
 
             await taskWriteOnlyRepository.Update(task);
             TaskResult result = new TaskResult(task);

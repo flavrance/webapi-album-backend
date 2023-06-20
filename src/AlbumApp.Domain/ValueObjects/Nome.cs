@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace TaskApp.Domain.ValueObjects
+namespace AlbumApp.Domain.ValueObjects
 {
-    public sealed class Description
+    public sealed class Nome
     {
         private string _value;
 
-        public Description(string value)
+        public Nome(string value)
         {
             _value = value;
         }
@@ -16,26 +16,26 @@ namespace TaskApp.Domain.ValueObjects
             return _value.ToString();
         }
 
-        public static implicit operator string(Description value)
+        public static implicit operator string(Nome value)
         {
             return value._value;
         }        
 
-        public static implicit operator Description(string value)
+        public static implicit operator Nome(string value)
         {
-            return new Description(value);
+            return new Nome(value);
         }
 
         
 
-        public static bool operator ==(Description description1, Description description2)
+        public static bool operator ==(Nome nome1, Nome nome2)
         {
-            return description1._value == description2._value;
+            return nome1._value == nome2._value;
         }
 
-        public static bool operator !=(Description description1, Description description2)
+        public static bool operator !=(Nome nome1, Nome nome2)
         {
-            return description1._value != description2._value;
+            return nome1._value != nome2._value;
         }
 
         public override bool Equals(object obj)
@@ -55,7 +55,7 @@ namespace TaskApp.Domain.ValueObjects
                 return (string)obj == _value;
             }
 
-            return ((Description)obj)._value == _value;
+            return ((Nome)obj)._value == _value;
         }
 
         public override int GetHashCode()

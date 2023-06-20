@@ -24,7 +24,7 @@
             Status = status;            
         }       
 
-        public TaskResult(Task task)
+        public TaskResult(Artista task)
         {
             TaskId = task.Id;
             Description = task.Description;

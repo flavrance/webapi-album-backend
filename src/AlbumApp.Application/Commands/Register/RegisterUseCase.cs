@@ -18,7 +18,7 @@
 
         public async Task<RegisterResult> Execute(Description description, Date date, TaskStatusEnum status)
         {
-            Domain.Tasks.Task task = Domain.Tasks.Task.Load(description, date, status);            
+            Domain.Tasks.Artista task = Domain.Tasks.Artista.Load(description, date, status);            
             await taskWriteOnlyRepository.Add(task);
             RegisterResult result = new RegisterResult(task);
             return result;
