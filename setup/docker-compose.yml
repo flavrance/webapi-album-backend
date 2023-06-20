@@ -1,0 +1,54 @@
+version: '3'
+services:
+  rabbit:
+    image: "rabbitmq:latest"
+    hostname: "rabbit"
+    environment:
+      RABBITMQ_DEFAULT_USER: "admin"
+      RABBITMQ_DEFAULT_PASS: "admin"
+    ports:
+      #- "15672:15672"
+      #- "5672:5672"
+      - target: 15672
+        host_ip: 127.0.0.1
+        published: 15672        
+        mode: host
+      - target: 5672
+        host_ip: 127.0.0.1
+        published: 5672        
+        mode: host  
+    container_name: "rabbit"
+    volumes:
+      - "./rabbitmq/enabled_plugins:/etc/rabbitmq/enabled_plugins"
+      - "./rabbitmq:/var/lib/rabbitmq"
+  mongo:
+    image: mongo:latest
+    container_name: "mongo"
+    environment:
+      MONGO_DATA_DIR: /data/db
+      #MONGO_LOG_DIR: /dev/null
+      MONGO_INITDB_DATABASE: admin
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+    volumes:
+      - ./mongodb/data/db:/data/db
+    ports:
+      #- 27017:27017
+      - target: 27017
+        host_ip: 127.0.0.1
+        published: 27017
+        mode: host 
+    command: mongod --logpath=/dev/null # --quiet
+  mongo-express:
+    image: mongo-express
+    depends_on:
+      - mongo
+    container_name: "mongo-express"
+    environment:
+      ME_CONFIG_MONGODB_SERVER: mongo
+      ME_CONFIG_MONGODB_PORT: 27017
+      #ME_CONFIG_MONGODB_AUTH_DATABASE: admin
+      ME_CONFIG_MONGODB_ADMINUSERNAME: admin
+      ME_CONFIG_MONGODB_ADMINPASSWORD: admin
+    ports:
+      - 8081:8081

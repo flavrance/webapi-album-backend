@@ -1,0 +1,22 @@
+﻿{
+  "defaultAssembly": "TaskApp.Infrastructure",
+  "modules": [
+    {
+      "type": "TaskApp.Infrastructure.Modules.WebApiModule",
+      "properties": {
+      }
+    },
+    {
+      "type": "TaskApp.Infrastructure.Modules.ApplicationModule",
+      "properties": {
+      }
+    },
+    {
+      "type": "TaskApp.Infrastructure.Modules.InfrastructureModule",
+      "properties": {
+        "ConnectionString": "mongodb://admin:admin@localhost:27017",
+        "DatabaseName": "TaskApp-V01"
+      }
+    }
+  ]
+}
