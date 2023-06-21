@@ -4,7 +4,7 @@ using System.Text;
 
 namespace AlbumApp.Domain.Albuns
 {
-    public enum MidiaEnum
+    public enum TipoMidiaEnum
     {
         CAPA = 1, CONTRA_CAPA = 2, FOLHETO = 3
     }
